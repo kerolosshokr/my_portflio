@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 207 78% 10%;
+    --second-bg: 205 60% 17%;
+    --foreground: 0 0% 93%;
+    --main-color: 197 100% 47%;
+
+    --card: 205 60% 17%;
+    --card-foreground: 0 0% 93%;
+    --popover: 207 78% 10%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 197 100% 47%;
+    --primary-foreground: 207 78% 10%;
+    --secondary: 205 60% 17%;
+    --secondary-foreground: 0 0% 93%;
+    --muted: 205 60% 17%;
+    --muted-foreground: 0 0% 80%;
+    --accent: 197 100% 47%;
+    --accent-foreground: 207 78% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 93%;
+    --border: 197 100% 47%;
+    --input: 205 60% 17%;
+    --ring: 197 100% 47%;
+    --radius: 0.8rem;
+
+    --sidebar-background: 207 78% 10%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 197 100% 47%;
+    --sidebar-primary-foreground: 207 78% 10%;
+    --sidebar-accent: 205 60% 17%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 197 100% 47%;
+    --sidebar-ring: 197 100% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes homeBgtext {
+  0%, 10%, 100% {
+    background-position: -33rem 0;
+  }
+  65%, 85% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes homeCursortext {
+  0%, 10%, 100% {
+    width: 0;
+  }
+  65%, 78%, 85% {
+    width: 100%;
+    opacity: 1;
+  }
+  75%, 81% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== TEXT ANIMATE ===== */
+.text-animate h3 {
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 0.7px hsl(var(--primary));
+  background-image: linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-position: -33rem 0;
+  animation: homeBgtext 6s linear infinite;
+  animation-delay: 2s;
+}
+
+.text-animate h3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-right: 2px solid hsl(var(--primary));
+  z-index: -1;
+  animation: homeCursortext 6s linear infinite;
+  animation-delay: 2s;
+}
+
+/* ===== SKILL BARS ===== */
+.skill-bar {
+  height: 2.5rem;
+  border-radius: 0.6rem;
+  border: 2px solid hsl(var(--primary));
+  padding: 0.5rem;
+  margin: 0.8rem 0;
+}
+
+.skill-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 0.3rem;
+  background: hsl(var(--primary));
+  transition: width 1s ease;
+}
+
+/* ===== EXP ITEMS ===== */
+.exp-item {
+  animation: fadeInUp 0.8s ease forwards;
+}
