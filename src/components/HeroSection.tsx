@@ -1,5 +1,6 @@
 import { FaFacebookF, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
+
 import profileImg from "@/assets/photo2.png";
 
 const HeroSection = () => {
