@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // تم تعديل الـ base ليطابق اسم الـ repository الخاص بك تماماً
-  base: '/my-protofolio/', 
+  base: '/my_portflio/', 
   
   server: {
     host: "::",
