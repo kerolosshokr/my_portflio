@@ -5,7 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/Portflio2/',
+  // تم تعديل الـ base ليطابق اسم الـ repository الخاص بك تماماً
+  base: '/my-protofolio/', 
+  
   server: {
     host: "::",
     port: 8080,
@@ -13,11 +15,21 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [
+    react(), 
+    mode === "development" && componentTagger()
+  ].filter(Boolean),
+  
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime"],
   },
+  
+  build: {
+    outDir: "dist",
+    emptyOutDir: true,
+    sourcemap: false,
+  }
 }));
